@@ -1,0 +1,2 @@
+{% import_yaml 'kzero/config/defaults.yaml' as preconfig %}
+{% set config = salt['pillar.get']( 'kzero', default=preconfig.kzero, merge=True ) %}

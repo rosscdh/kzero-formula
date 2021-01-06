@@ -1,0 +1,19 @@
+[Unit]
+Description=k0s Worker- Zero Friction Kubernetes
+ConditionFileIsExecutable=/usr/bin/k0s
+
+After=network.target
+
+[Service]
+Environment="ETCD_UNSUPPORTED_ARCH=arm64"
+StartLimitInterval=5
+StartLimitBurst=10
+ExecStart=/usr/bin/k0s "worker" "{{ config.token }}"
+
+Restart=always
+
+RestartSec=120
+EnvironmentFile=-/etc/sysconfig/k0s
+KillMode=process
+[Install]
+WantedBy=multi-user.target

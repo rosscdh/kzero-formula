@@ -1,0 +1,7 @@
+name: kzero
+os: CentOS
+os_family: RedHat
+version: 0.0.1
+release: 1
+description: k0 formula
+top_level_dir:  kzero
