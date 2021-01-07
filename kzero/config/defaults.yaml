@@ -1,7 +1,5 @@
 kzero:
   home: /home/k0s
-  # load balancer for api
-  external_address: 192.168.0.67
 
   controller:
     # when adding another controller
