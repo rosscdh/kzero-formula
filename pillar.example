@@ -1,6 +1,12 @@
 kzero:
-  your: mother
-  is:
-  - fat
-  - old 
-  
+  home: /home/k0s
+
+  controller:
+    # when adding another controller
+    token: null
+    token_expires: '1h'
+
+  worker:
+    # when adding worker nodes
+    token: null
+    token_expires: '0'
