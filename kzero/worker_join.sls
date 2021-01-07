@@ -1,7 +1,7 @@
 # show worker info
 {% from 'kzero/map.jinja' import config with context %}
 
-{% if config.get('worker', {}).get('master_fqdn', None) and config.get('worker', {}).get('token', None) %}
+{% if config.get('worker', {}).get('token', None) %}
 /etc/systemd/system/k0s.service:
   file.managed:
   - source:
@@ -14,6 +14,11 @@
 kzero_start_k0s_worker:
   service.running:
   - name: k0s
-  - restart: True
+  - reload: True
   - enable: True
+  - onchange:
+    - file: /etc/systemd/system/k0s.service
+{% else %}
+'echo "You must define a worker.token for this minion"':
+  cmd.run
 {% endif %}

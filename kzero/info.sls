@@ -12,8 +12,8 @@ kzero_show_kubeconfig:
 
 kzero_show_controller_token:
   cmd.run:
-  - name: '/usr/bin/k0s token create --role=controller --expiry={{ config.controller.token_expires }}'
+  - name: '/usr/bin/k0s token create -c {{ config.home }}/.k0s/k0s.yaml --role=controller --expiry={{ config.controller.token_expires }}'
 
 kzero_show_worker_token:
   cmd.run:
-  - name: '/usr/bin/k0s token create --role=worker --expiry={{ config.worker.token_expires }}'
+  - name: '/usr/bin/k0s token create -c {{ config.home }}/.k0s/k0s.yaml --role=worker --expiry={{ config.worker.token_expires }}'

@@ -6,5 +6,5 @@
 kzero_start_k0s:
   service.running:
   - name: k0s
-  - restart: True
+  - reload: True
   - enable: True
