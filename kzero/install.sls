@@ -37,7 +37,7 @@ kzero_get_k0s:
 
 kzero_get_kubectl:
     cmd.run:
-    - name: 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm64/kubectl";chmod +x ./kubectl;mv ./kubectl /usr/local/bin/kubectl'
+    - name: 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/{{ grains.kernel | lower }}/{{ grains.osarch | lower }}/kubectl";chmod +x ./kubectl;mv ./kubectl /usr/local/bin/kubectl'
 
 kzero_install_k0s:
     cmd.run:
