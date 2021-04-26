@@ -37,6 +37,6 @@ kzero_get_k0s:
 
 kzero_install_k0s:
     cmd.run:
-    - name: '$(which k0s) install -c {{ config.home }}/.k0s/k0s.yaml'
+    - name: '$(which k0s) install controller -c {{ config.home }}/.k0s/k0s.yaml'
     - require:
       - kzero_get_k0s
